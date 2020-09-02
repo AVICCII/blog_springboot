@@ -1,11 +1,18 @@
 package com.aviccii.cc.controller;
 
 import com.aviccii.cc.pojo.Book;
+import com.aviccii.cc.pojo.User;
+import com.aviccii.cc.result.Result;
+import com.aviccii.cc.result.ResultFactory;
 import com.aviccii.cc.service.BookService;
+import com.aviccii.cc.service.UserService;
 import com.aviccii.cc.utils.StringUtils;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.HtmlUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +26,7 @@ import java.util.List;
 public class LibraryController {
     @Autowired
     BookService bookService;
+    UserService userService;
     @CrossOrigin
     @GetMapping("/api/books")
     public List<Book> list() throws Exception {
@@ -65,4 +73,20 @@ public class LibraryController {
             return "";
         }
     }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
